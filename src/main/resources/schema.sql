@@ -6,15 +6,15 @@
 --     primary key (id)
 -- );
 
-create table IF NOT EXISTS person2(
-    id integer not null,
-    name varchar(255) not null,
-    location varchar(255),
-    primary key (id)
-);
+-- create table IF NOT EXISTS person2(
+--     id integer not null,
+--     name varchar(255) not null,
+--     location varchar(255),
+--     primary key (id)
+-- );
 
-alter table person add stocks integer;
-alter table person alter stocks set default 100;
+-- alter table person add stocks integer;
+-- alter table person alter stocks set default 100;
 
 
 -- this file can not be empty, so we add this dummy query, do nothings!!!
