@@ -26,5 +26,6 @@ public class Tutor001Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		logger.info("All users -> {}", dao.findAll());
 		logger.info("User id 1: -> {}", dao.findById(1));
+		logger.info("Deleting id 1: -> {}", dao.deleteById(1));
 	}
 }
