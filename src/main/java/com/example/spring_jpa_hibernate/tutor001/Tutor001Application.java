@@ -1,5 +1,6 @@
 package com.example.spring_jpa_hibernate.tutor001;
 
+import com.example.spring_jpa_hibernate.tutor001.entity.Person;
 import com.example.spring_jpa_hibernate.tutor001.jdbc.PersonJdbcDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Date;
 
 @SpringBootApplication
 public class Tutor001Application implements CommandLineRunner {
@@ -27,5 +30,8 @@ public class Tutor001Application implements CommandLineRunner {
 		logger.info("All users -> {}", dao.findAll());
 		logger.info("User id 1: -> {}", dao.findById(1));
 		logger.info("Deleting id 1: -> {}", dao.deleteById(1));
+
+		logger.info("Inserting 100 -> {}", dao.insert(new Person(100, "name100", "location100", new Date())));
+		logger.info("Updating 2 -> {}", dao.update(new Person(2, "name2", "location2", new Date())));
 	}
 }
