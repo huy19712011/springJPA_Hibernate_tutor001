@@ -29,11 +29,14 @@ public class JpaDemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		logger.info("User id 1: -> {}", repository.findById(1));
+
+		logger.info("Inserting 100 -> {}", repository.insert(new Person("name100", "location100", new Date())));
+
+//		logger.info("Updating 2 -> {}", repository.update(repository.findById(2)));
+		logger.info("Updating 2 -> {}", repository.update(new Person("newName", "newLocation", new Date())));
 /*
 		logger.info("All users -> {}", repository.findAll());
-		logger.info("Deleting id 1: -> {}", daor
-		logger.info("Inserting 100 -> {}", dao.insert(new Person("name100", "location100", new Date())));
-		logger.info("Updating 2 -> {}", dao.update(dao.findById(2)));
+		logger.info("Deleting id 1: -> {}",
 */
 	}
 }
