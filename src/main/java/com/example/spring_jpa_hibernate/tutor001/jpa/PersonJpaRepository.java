@@ -3,9 +3,12 @@ package com.example.spring_jpa_hibernate.tutor001.jpa;
 import com.example.spring_jpa_hibernate.tutor001.entity.Person;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @Transactional
@@ -13,6 +16,11 @@ public class PersonJpaRepository {
 
     @PersistenceContext
     EntityManager entityManager;
+
+    public List<Person> findAll() {
+        TypedQuery<Person> namedQuery = entityManager.createNamedQuery("find_all_persons", Person.class);
+        return namedQuery.getResultList();
+    }
 
     public Person findById(int id) {
         return entityManager.find(Person.class, id);

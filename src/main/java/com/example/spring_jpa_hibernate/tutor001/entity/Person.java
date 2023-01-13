@@ -1,13 +1,11 @@
 package com.example.spring_jpa_hibernate.tutor001.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@NamedQuery(name = "find_all_persons", query = "select p from Person p")
 public class Person {
 
     @Id
